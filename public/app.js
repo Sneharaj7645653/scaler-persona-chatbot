@@ -18,9 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const suggestions = {
         anshuman: [
-            "Is it better to learn Java or Python?", 
-            "I feel demotivated and want to quit.",  
-            "Why is Scaler so expensive?"            
+            "How can I groom myself for a tech lead role?",  
+            "How has competitive programming helped you in real-world software engineering?",
+            "Is it better to learn Java or Python?",      
         ],
         abhimanyu: [
             "How did Scaler actually start?",        
@@ -28,9 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
             "Is it risky to build a startup in India?" 
         ],
         kshitij: [
-            "My resume keeps getting rejected.",     
-            "People in my batch are so negative.",   
-            "I completely messed up my interview."   
+            "Are data structures important for coding interviews?",   
+            "How can prepare for system design interviews?",
+            "My resume keeps getting rejected."    
+               
         ]
     };
 
