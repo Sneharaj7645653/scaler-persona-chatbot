@@ -40,3 +40,12 @@ Instead of relying on generic system instructions, the prompts driving this appl
 - `prompts.js` - The core logic file containing the deeply researched system prompts.
 - `prompts.md` - Documentation of the prompt engineering decisions and research sources.
 - `reflection.md` - A 400-word analysis on the GIGO principle and the learning process.
+
+
+
+## UI Demo
+###Desktop screen
+<img width="1280" height="832" alt="Screenshot 2026-04-30 at 9 15 02 PM" src="https://github.com/user-attachments/assets/0cb1ba10-c403-4be3-9a84-f31b8a328d14" />
+###Mobile view
+<img width="1280" height="832" alt="Screenshot 2026-04-30 at 9 16 02 PM" src="https://github.com/user-attachments/assets/f311b9b2-4dd4-42fb-b0a1-d31dad5d94f2" />
+
