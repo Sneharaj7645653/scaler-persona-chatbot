@@ -7,7 +7,7 @@ This project is a fully functional, persona-based AI chatbot built to simulate r
 Instead of relying on generic system instructions, the prompts driving this application were heavily researched and engineered using raw data scraped from their public podcasts, LinkedIn posts, and Scaler Masterclass transcripts. The backend leverages the **Groq API (Llama-3.3-70b-versatile)** to bypass traditional LLM quota limits while maintaining high-fidelity instruction following.
 
 ## Live Deployment
-- **Live URL:** [Insert your deployed link here — e.g., Vercel, Railway, or Render]
+- **Live URL:** https://scaler-persona-chatbot-00h0.onrender.com/
 
 ## Tech Stack
 - **Frontend:** Vanilla HTML, CSS, JavaScript (Zero-dependency, lightweight DOM manipulation)

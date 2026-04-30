@@ -11,34 +11,25 @@
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
 
 body { 
-    background-color: #e5e7eb; 
+    background-color: var(--text-light); 
     display: flex; 
-    justify-content: center; 
-    align-items: center;
     height: 100vh; 
     height: 100dvh; /* Fix for mobile browser UI */
 }
 
 .app-container {
     width: 100%;
-    max-width: 480px;
     height: 100%;
-    max-height: 850px;
-    background: var(--text-light);
     display: flex;
     flex-direction: column;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     position: relative;
-}
-
-/* Mobile rounding */
-@media (min-width: 481px) {
-    .app-container { border-radius: 16px; height: 95vh; overflow: hidden; }
+    /* Removed the max-width and borders so it spans the entire screen */
 }
 
 /* Header & Tabs */
 .persona-switcher {
     display: flex;
+    justify-content: center; /* Centers the tabs on wide screens */
     background: var(--primary);
     padding: 8px;
     gap: 8px;
@@ -46,6 +37,7 @@ body {
 
 .tab {
     flex: 1;
+    max-width: 200px; /* Prevents tabs from stretching too wide on desktop */
     background: transparent;
     color: #888;
     border: none;
@@ -83,6 +75,7 @@ body {
 }
 
 .message {
+    width: fit-content;
     max-width: 85%;
     padding: 12px 16px;
     border-radius: 16px;
@@ -112,6 +105,27 @@ body {
     font-size: 0.85rem;
     text-align: center;
     width: 100%;
+    max-width: 800px;
+}
+
+/* Desktop Centering Magic */
+@media (min-width: 768px) {
+    .message {
+        max-width: 700px; /* Comfortable reading width */
+    }
+    .message.ai {
+        margin-right: auto;
+        /* This keeps the bubble aligned to an 800px center column */
+        margin-left: max(0px, calc(50vw - 400px)); 
+    }
+    .message.user {
+        margin-left: auto;
+        margin-right: max(0px, calc(50vw - 400px));
+    }
+    .typing-indicator {
+        margin-right: auto;
+        margin-left: max(0px, calc(50vw - 400px)) !important;
+    }
 }
 
 /* Typing Indicator Animation */
@@ -120,6 +134,7 @@ body {
     display: flex;
     gap: 4px;
     align-items: center;
+    align-self: flex-start;
 }
 
 .typing-indicator span {
@@ -148,6 +163,7 @@ body {
     overflow-x: auto;
     white-space: nowrap;
     scrollbar-width: none; /* Firefox */
+    justify-content: center; /* Centers chips on desktop */
 }
 .suggestion-chips::-webkit-scrollbar { display: none; } /* Chrome */
 
@@ -168,7 +184,8 @@ body {
 /* Input Area */
 .input-area {
     display: flex;
-    padding: 15px;
+    justify-content: center;
+    padding: 15px 20px;
     background: #ffffff;
     border-top: 1px solid #eee;
     gap: 10px;
@@ -176,6 +193,7 @@ body {
 
 .input-area input {
     flex: 1;
+    max-width: 740px; /* Keeps the input bar aligned with the messages */
     padding: 14px 16px;
     border: 1px solid #ddd;
     border-radius: 24px;
@@ -198,6 +216,7 @@ body {
     justify-content: center;
     align-items: center;
     transition: transform 0.1s;
+    flex-shrink: 0;
 }
 
 .input-area button:active { transform: scale(0.95); }
