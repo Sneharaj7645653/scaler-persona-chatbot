@@ -19,15 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const suggestions = {
         anshuman: [
             "How can I groom myself for a tech lead role?",  
+            "How has competitive programming helped you in real-world software engineering?",
             "Is it better to learn Java or Python?",      
         ],
         abhimanyu: [
             "How did Scaler actually start?",        
             "Why are hands-on projects important?",  
+            "Is it risky to build a startup in India?" 
         ],
         kshitij: [
             "Are data structures important for coding interviews?",   
-            "How can prepare for system design interviews?",               
+            "How can prepare for system design interviews?",
+            "My resume keeps getting rejected."    
+               
         ]
     };
 

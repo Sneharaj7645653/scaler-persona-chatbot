@@ -23,13 +23,12 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    /* Removed the max-width and borders so it spans the entire screen */
 }
 
 /* Header & Tabs */
 .persona-switcher {
     display: flex;
-    justify-content: center; /* Centers the tabs on wide screens */
+    justify-content: center; 
     background: var(--primary);
     padding: 8px;
     gap: 8px;
@@ -37,7 +36,7 @@ body {
 
 .tab {
     flex: 1;
-    max-width: 200px; /* Prevents tabs from stretching too wide on desktop */
+    max-width: 200px; 
     background: transparent;
     color: #888;
     border: none;
@@ -108,26 +107,6 @@ body {
     max-width: 800px;
 }
 
-/* Desktop Centering Magic */
-@media (min-width: 768px) {
-    .message {
-        max-width: 700px; /* Comfortable reading width */
-    }
-    .message.ai {
-        margin-right: auto;
-        /* This keeps the bubble aligned to an 800px center column */
-        margin-left: max(0px, calc(50vw - 400px)); 
-    }
-    .message.user {
-        margin-left: auto;
-        margin-right: max(0px, calc(50vw - 400px));
-    }
-    .typing-indicator {
-        margin-right: auto;
-        margin-left: max(0px, calc(50vw - 400px)) !important;
-    }
-}
-
 /* Typing Indicator Animation */
 .typing-indicator {
     padding: 0 20px 10px;
@@ -155,28 +134,26 @@ body {
 
 .hidden { display: none !important; }
 
-/* Suggestion Chips */
+/* Suggestion Chips - MOBILE FIRST (Vertical Stack) */
 .suggestion-chips {
     display: flex;
+    flex-direction: column; /* Stacks chips vertically */
     gap: 8px;
-    padding: 10px 15px;
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: none; /* Firefox */
-    justify-content: center; /* Centers chips on desktop */
+    padding: 10px 20px;
 }
-.suggestion-chips::-webkit-scrollbar { display: none; } /* Chrome */
 
 .chip {
     background: #ffffff;
     border: 1px solid #ddd;
     color: #555;
-    padding: 8px 14px;
-    border-radius: 20px;
+    padding: 10px 14px;
+    border-radius: 12px; /* Slightly less round looks better when stacked */
     font-size: 0.85rem;
     cursor: pointer;
     transition: background 0.2s;
-    flex-shrink: 0;
+    width: 100%; /* Takes full width on mobile */
+    text-align: center;
+    white-space: normal; /* Allows long text to wrap to the next line */
 }
 
 .chip:hover { background: var(--secondary); color: var(--text-dark); }
@@ -193,7 +170,7 @@ body {
 
 .input-area input {
     flex: 1;
-    max-width: 740px; /* Keeps the input bar aligned with the messages */
+    max-width: 740px; 
     padding: 14px 16px;
     border: 1px solid #ddd;
     border-radius: 24px;
@@ -220,3 +197,33 @@ body {
 }
 
 .input-area button:active { transform: scale(0.95); }
+
+/* Desktop Centering & Layout Adjustments */
+@media (min-width: 768px) {
+    .message {
+        max-width: 700px; /* Comfortable reading width */
+    }
+    .message.ai {
+        margin-right: auto;
+        margin-left: max(0px, calc(50vw - 400px)); 
+    }
+    .message.user {
+        margin-left: auto;
+        margin-right: max(0px, calc(50vw - 400px));
+    }
+    .typing-indicator {
+        margin-right: auto;
+        margin-left: max(0px, calc(50vw - 400px)) !important;
+    }
+    
+    /* Change chips back to horizontal row on desktop */
+    .suggestion-chips {
+        flex-direction: row; 
+        justify-content: center;
+        flex-wrap: wrap; /* Allows wrapping on medium screens */
+    }
+    .chip {
+        width: auto; /* Shrinks chip width to just fit the text */
+        border-radius: 20px; /* Pill shape for horizontal layout */
+    }
+}
